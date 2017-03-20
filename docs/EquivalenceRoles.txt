@@ -1,0 +1,7 @@
+Correspondance des Types d'utilisateur dans la table USERS
+Tuto Lavarel  | ebm
+------------------------
+ Redacteur    | mod   (moderateur)
+ User         | mem   (membre) 
+ Admin        | admin (administrateur)
+ Visitor      |

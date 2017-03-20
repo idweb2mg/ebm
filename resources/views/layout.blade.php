@@ -1,3 +1,12 @@
+<?php
+/*
+===============================
+ebm ~ layout.blade.php
+===============================
+*/
+
+
+?>
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
 
@@ -41,7 +50,7 @@
                         <li {!! classActivePath('/') !!}>
                             {!! link_to('/', trans('front/site.home')) !!}
                         </li>
-                        @if(session('statut') == 'visitor' || session('statut') == 'user')
+                        @if(session('statut') == 'visitor' || session('statut') == 'mem')
                             <li {!! classActivePath('contact/create') !!}>
                                 {!! link_to('contact/create', trans('front/site.contact')) !!}
                             </li>
@@ -67,7 +76,7 @@
                                     <li>
                                         {!! link_to_route('admin', trans('front/site.administration')) !!}
                                     </li>
-                                @elseif(session('statut') == 'redac')
+                                @elseif(session('statut') == 'mod')
                                     <li>
                                         {!! link_to('blog', trans('front/site.redaction')) !!}
                                     </li>
@@ -80,13 +89,7 @@
                         @endif
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#"><img width="32" height="32" alt="{{ session('locale') }}"  src="{!! asset('img/' . session('locale') . '-flag.png') !!}" />&nbsp; <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                            @foreach ( config('app.languages') as $user)
-                                @if($user !== config('app.locale'))
-                                    <li><a href="{!! url('language') !!}/{{ $user }}"><img width="32" height="32" alt="{{ $user }}" src="{!! asset('img/' . $user . '-flag.png') !!}"></a></li>
-                                @endif
-                            @endforeach
-                            </ul>
+
                         </li>
                     </ul>
                 </div>
@@ -107,7 +110,7 @@
 
     <footer>
         @yield('footer')
-        <p class="text-center"><small>Copyright &copy; Momo</small></p>
+        <p class="text-center"><small>Copyright &copy; e-BM</small></p>
     </footer>
 
     {!! HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js') !!}

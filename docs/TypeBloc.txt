@@ -1,0 +1,96 @@
+Les types dans les blocs 
+========================
+FRSEGMENTSCLIENTS 
+TYPE
+        1 Marché de masse
+        2 Marché de niche
+        3 Marché segmenté
+        4 Marché diversifié
+        5 Marchés multilatéraux
+        
+        
+ FRPROPOSITIONSDEVALEUR
+ Type
+	1 Nouveauté
+        2 Performance
+        3 Personnalisation
+        4 "Accompagner"
+        5 Design
+        6 Marque/Statut
+        7 Prix
+        8 Réduction des coûts
+        9 Réduction des risques
+        10 Accessibilité
+        11 Commodité/ergonomie
+        
+        
+ FRCANAUX
+ Type de canal
+	1 Force de vente
+        2 Ventes en ligne
+        3 Magasins en propre
+        4 Magasinbs des partenaires
+        5 Grossiste
+        
+ Phases
+	1 Reconnaissance
+        2 Evaluation
+        3 Achat
+        4 Prestation
+        5 Après-vente
+        
+        
+ FRRELATIONCLIENT
+ Type
+	1 Assistance personnelle
+        2 Assistance personnelle dédiée
+        3 Self-service
+        4 Services automatisés
+        5 Communautés
+        6 Co-création
+        
+        
+ FRSOURCESDEREVENUS
+ Type
+	1 Vente de bienhs
+        2 Droit d'usage
+        3 Abonnements
+        4 Location/Prêt
+        5 Licensing
+        
+  Prixfixes
+	1 Prix du cataologue
+        2 Caractéristiques du prix
+        3 Segment de clientèle
+        4 Volume
+        
+  Prixdynamique
+	1 Négociation
+        2 Yield management
+        3 Marché en temps réel
+        4 Enchères
+        
+
+
+FRACTIVITESCLES
+Type
+	1 Production
+        2 Résolution de problèmes
+        3 Pletforme/Réseau
+        
+        
+FRPARTENARIAT
+Type
+	1 Optimisation et économies d'échelle
+        2 Réduction du risque et de l'incertitude
+        3 Acquisition certaines ressources et activités
+        
+        
+FRSTRUCTUREDECOUTES
+Type
+	1 Logique de coûts
+        2 Logique de valeur
+        
+
+        
+ 
