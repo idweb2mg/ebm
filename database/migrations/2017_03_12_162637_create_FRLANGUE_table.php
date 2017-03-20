@@ -14,6 +14,7 @@ class CreateFRLANGUETable extends Migration
     public function up()
     {
       Schema::create('FRLANGUE', function(Blueprint $table){
+        $table->engine = 'InnoDB';
         $table->increments('ID');
         $table->string('REFERENCELANGUE', 30);
 

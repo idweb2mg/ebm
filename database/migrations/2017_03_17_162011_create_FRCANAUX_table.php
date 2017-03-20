@@ -13,6 +13,7 @@ class CreateFRCANAUXTable extends Migration
      */
     public function up()
     { Schema::create('FRCANAUX', function(Blueprint $table){
+      $table->engine = 'InnoDB';
       $table->increments('ID');
       $table->enum('TYPECANAUX', array('1','2','3','4','5'));
       $table->text('RECONNAISSANCE');

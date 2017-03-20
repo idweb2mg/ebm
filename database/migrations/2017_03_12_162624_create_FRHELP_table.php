@@ -14,6 +14,7 @@ class CreateFRHELPTable extends Migration
     public function up()
     {
       Schema::create('FRHELP', function(Blueprint $table){
+       $table->engine = 'InnoDB';
        $table->increments('ID');
        $table->string('LIBELLEHELP', 30);
        $table->text('CONTENU'); 
