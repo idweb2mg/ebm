@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 20 Mars 2017 à 07:21
+-- Généré le :  Lun 20 Mars 2017 à 14:56
 -- Version du serveur :  5.7.14
 -- Version de PHP :  7.0.10
 
@@ -33,7 +33,7 @@ CREATE TABLE `fractivitescles` (
   `TITRE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
   `ID_MATRICE` int(10) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -53,7 +53,7 @@ CREATE TABLE `frcanaux` (
   `TITRE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
   `ID_MATRICE` int(10) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -63,18 +63,9 @@ CREATE TABLE `frcanaux` (
 
 CREATE TABLE `frhelp` (
   `ID` int(10) UNSIGNED NOT NULL,
-  `CONTENU` text COLLATE utf8_unicode_ci NOT NULL,
-  `ID_MATRICE` int(10) UNSIGNED NOT NULL,
-  `ID_PROJET` int(10) UNSIGNED NOT NULL,
-  `ID_CANAUX` int(10) UNSIGNED NOT NULL,
-  `ID_RELATIONCLIENT` int(10) UNSIGNED NOT NULL,
-  `ID_PROPOSITIONDEVALEUR` int(10) UNSIGNED NOT NULL,
-  `ID_SOURCESDEREVENUS` int(10) UNSIGNED NOT NULL,
-  `ID_RESSOURCESCLES` int(10) UNSIGNED NOT NULL,
-  `ID_PARTENARIAT` int(10) UNSIGNED NOT NULL,
-  `ID_ACTIVITESCLES` int(10) UNSIGNED NOT NULL,
-  `ID_STRUCTUREDECOUTS` int(10) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `LIBELLEHELP` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `CONTENU` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -85,7 +76,7 @@ CREATE TABLE `frhelp` (
 CREATE TABLE `frlangue` (
   `ID` int(10) UNSIGNED NOT NULL,
   `REFERENCELANGUE` varchar(30) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -97,11 +88,10 @@ CREATE TABLE `frmatrice` (
   `ID` int(10) UNSIGNED NOT NULL,
   `TITREMATRICE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `ID_PROJET` int(10) UNSIGNED NOT NULL,
-  `ID_LANGUE` int(10) UNSIGNED NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
   `DATECREATION` timestamp NOT NULL,
   `DATEENREGISTREMENT` timestamp NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -116,7 +106,7 @@ CREATE TABLE `frpartenariat` (
   `TITRE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
   `ID_MATRICE` int(10) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -128,12 +118,11 @@ CREATE TABLE `frprojet` (
   `ID` int(10) UNSIGNED NOT NULL,
   `LIBELLEPROJET` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `TYPEPROJET` enum('1','2','3','4') COLLATE utf8_unicode_ci NOT NULL,
-  `ID_MATRICE` int(10) UNSIGNED NOT NULL,
   `ID_LANGUE` int(10) UNSIGNED NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
   `DATECREATION` timestamp NOT NULL,
   `DATEENREGISTREMENT` timestamp NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -148,7 +137,7 @@ CREATE TABLE `frpropositiondevaleur` (
   `TITRE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
   `ID_MATRICE` int(10) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -163,7 +152,7 @@ CREATE TABLE `frrelationclient` (
   `TITRE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
   `ID_MATRICE` int(10) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -181,7 +170,7 @@ CREATE TABLE `frressourcescles` (
   `TITRE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
   `ID_MATRICE` int(10) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -196,7 +185,7 @@ CREATE TABLE `frsegmentsclients` (
   `TITRE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
   `ID_MATRICE` int(10) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -213,7 +202,7 @@ CREATE TABLE `frsourcesderevenus` (
   `TITRE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
   `ID_MATRICE` int(10) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -231,7 +220,7 @@ CREATE TABLE `frstructuredecouts` (
   `TITRE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
   `ID_MATRICE` int(10) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -241,30 +230,31 @@ CREATE TABLE `frstructuredecouts` (
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Contenu de la table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2017_03_17_160810_create_FRPROJET_table', 2),
-(4, '2017_03_17_161933_create_FRMATRICE_table', 2),
-(5, '2017_03_17_161958_create_FRSEGMENTSCLIENTS_table', 2),
-(6, '2017_03_17_162011_create_FRCANAUX_table', 2),
-(7, '2017_03_17_162029_create_FRRELATIONCLIENT_table', 2),
-(8, '2017_03_17_162046_create_FRPROPOSITIONSDEVALEUR_table', 2),
-(9, '2017_03_17_162101_create_FRSOURCESDEREVENUS_table', 2),
-(10, '2017_03_17_162121_create_FRRESSOURCESCLES_table', 2),
-(11, '2017_03_17_162538_create_FRACTIVITESCLES_table', 2),
-(12, '2017_03_17_162550_create_FRPARTENARIAT_table', 2),
-(13, '2017_03_17_162610_create_FRSTRUCTUREDECOUTS_table', 2),
-(14, '2017_03_17_162624_create_FRHELP_table', 2),
-(15, '2017_03_17_162637_create_FRLANGUE_table', 2);
+(17, '2013_03_20_103406_create_ROLES_table', 1),
+(18, '2014_10_12_000000_create_users_table', 1),
+(19, '2014_10_12_100000_create_password_resets_table', 1),
+(20, '2017_03_12_162624_create_FRHELP_table', 1),
+(21, '2017_03_12_162637_create_FRLANGUE_table', 1),
+(22, '2017_03_13_160810_create_FRPROJET_table', 1),
+(23, '2017_03_16_161933_create_FRMATRICE_table', 1),
+(24, '2017_03_17_161958_create_FRSEGMENTSCLIENTS_table', 1),
+(25, '2017_03_17_162011_create_FRCANAUX_table', 1),
+(26, '2017_03_17_162029_create_FRRELATIONCLIENT_table', 1),
+(27, '2017_03_17_162046_create_FRPROPOSITIONSDEVALEUR_table', 1),
+(28, '2017_03_17_162101_create_FRSOURCESDEREVENUS_table', 1),
+(29, '2017_03_17_162121_create_FRRESSOURCESCLES_table', 1),
+(30, '2017_03_17_162538_create_FRACTIVITESCLES_table', 1),
+(31, '2017_03_17_162550_create_FRPARTENARIAT_table', 1),
+(32, '2017_03_17_162610_create_FRSTRUCTUREDECOUTS_table', 1);
 
 -- --------------------------------------------------------
 
@@ -281,6 +271,20 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `roles`
+--
+
+CREATE TABLE `roles` (
+  `ID` int(10) UNSIGNED NOT NULL,
+  `TITLE` enum('1','2','3') COLLATE utf8_unicode_ci NOT NULL,
+  `SLUG` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `DATECREATION` timestamp NOT NULL,
+  `DATEENREGISTREMENT` timestamp NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `users`
 --
 
@@ -291,7 +295,8 @@ CREATE TABLE `users` (
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `ID_ROLES` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -318,17 +323,7 @@ ALTER TABLE `frcanaux`
 -- Index pour la table `frhelp`
 --
 ALTER TABLE `frhelp`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `frhelp_id_matrice_foreign` (`ID_MATRICE`),
-  ADD KEY `frhelp_id_projet_foreign` (`ID_PROJET`),
-  ADD KEY `frhelp_id_canaux_foreign` (`ID_CANAUX`),
-  ADD KEY `frhelp_id_relationclient_foreign` (`ID_RELATIONCLIENT`),
-  ADD KEY `frhelp_id_propositiondevaleur_foreign` (`ID_PROPOSITIONDEVALEUR`),
-  ADD KEY `frhelp_id_sourcesderevenus_foreign` (`ID_SOURCESDEREVENUS`),
-  ADD KEY `frhelp_id_ressourcescles_foreign` (`ID_RESSOURCESCLES`),
-  ADD KEY `frhelp_id_partenariat_foreign` (`ID_PARTENARIAT`),
-  ADD KEY `frhelp_id_activitescles_foreign` (`ID_ACTIVITESCLES`),
-  ADD KEY `frhelp_id_structuredecouts_foreign` (`ID_STRUCTUREDECOUTS`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Index pour la table `frlangue`
@@ -342,7 +337,6 @@ ALTER TABLE `frlangue`
 ALTER TABLE `frmatrice`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `frmatrice_id_projet_foreign` (`ID_PROJET`),
-  ADD KEY `frmatrice_id_langue_foreign` (`ID_LANGUE`),
   ADD KEY `frmatrice_id_help_foreign` (`ID_HELP`);
 
 --
@@ -358,7 +352,6 @@ ALTER TABLE `frpartenariat`
 --
 ALTER TABLE `frprojet`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `frprojet_id_matrice_foreign` (`ID_MATRICE`),
   ADD KEY `frprojet_id_langue_foreign` (`ID_LANGUE`),
   ADD KEY `frprojet_id_help_foreign` (`ID_HELP`);
 
@@ -424,11 +417,19 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_token_index` (`token`);
 
 --
+-- Index pour la table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `roles_slug_unique` (`SLUG`);
+
+--
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
+  ADD UNIQUE KEY `users_email_unique` (`email`),
+  ADD KEY `users_id_roles_foreign` (`ID_ROLES`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
@@ -503,12 +504,104 @@ ALTER TABLE `frstructuredecouts`
 -- AUTO_INCREMENT pour la table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+--
+-- AUTO_INCREMENT pour la table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `fractivitescles`
+--
+ALTER TABLE `fractivitescles`
+  ADD CONSTRAINT `fractivitescles_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
+  ADD CONSTRAINT `fractivitescles_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID`);
+
+--
+-- Contraintes pour la table `frcanaux`
+--
+ALTER TABLE `frcanaux`
+  ADD CONSTRAINT `frcanaux_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
+  ADD CONSTRAINT `frcanaux_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID`);
+
+--
+-- Contraintes pour la table `frmatrice`
+--
+ALTER TABLE `frmatrice`
+  ADD CONSTRAINT `frmatrice_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
+  ADD CONSTRAINT `frmatrice_id_projet_foreign` FOREIGN KEY (`ID_PROJET`) REFERENCES `frprojet` (`ID`);
+
+--
+-- Contraintes pour la table `frpartenariat`
+--
+ALTER TABLE `frpartenariat`
+  ADD CONSTRAINT `frpartenariat_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
+  ADD CONSTRAINT `frpartenariat_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID`);
+
+--
+-- Contraintes pour la table `frprojet`
+--
+ALTER TABLE `frprojet`
+  ADD CONSTRAINT `frprojet_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
+  ADD CONSTRAINT `frprojet_id_langue_foreign` FOREIGN KEY (`ID_LANGUE`) REFERENCES `frlangue` (`ID`);
+
+--
+-- Contraintes pour la table `frpropositiondevaleur`
+--
+ALTER TABLE `frpropositiondevaleur`
+  ADD CONSTRAINT `frpropositiondevaleur_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
+  ADD CONSTRAINT `frpropositiondevaleur_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID`);
+
+--
+-- Contraintes pour la table `frrelationclient`
+--
+ALTER TABLE `frrelationclient`
+  ADD CONSTRAINT `frrelationclient_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
+  ADD CONSTRAINT `frrelationclient_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID`);
+
+--
+-- Contraintes pour la table `frressourcescles`
+--
+ALTER TABLE `frressourcescles`
+  ADD CONSTRAINT `frressourcescles_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
+  ADD CONSTRAINT `frressourcescles_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID`);
+
+--
+-- Contraintes pour la table `frsegmentsclients`
+--
+ALTER TABLE `frsegmentsclients`
+  ADD CONSTRAINT `frsegmentsclients_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
+  ADD CONSTRAINT `frsegmentsclients_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID`);
+
+--
+-- Contraintes pour la table `frsourcesderevenus`
+--
+ALTER TABLE `frsourcesderevenus`
+  ADD CONSTRAINT `frsourcesderevenus_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
+  ADD CONSTRAINT `frsourcesderevenus_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID`);
+
+--
+-- Contraintes pour la table `frstructuredecouts`
+--
+ALTER TABLE `frstructuredecouts`
+  ADD CONSTRAINT `frstructuredecouts_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
+  ADD CONSTRAINT `frstructuredecouts_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID`);
+
+--
+-- Contraintes pour la table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_id_roles_foreign` FOREIGN KEY (`ID_ROLES`) REFERENCES `roles` (`ID`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
