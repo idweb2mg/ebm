@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFRPROJETTable extends Migration
+class CreateFRMATRICETable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,23 +13,19 @@ class CreateFRPROJETTable extends Migration
      */
     public function up()
     {
-        Schema::create('FRPROJET', function(Blueprint $table) {
-            $table->engine = 'InnoDB';
+         Schema::create('FRMATRICE', function(Blueprint $table) {
             $table->increments('ID');
-            $table->string('LIBELLEPROJET', 30);
-            $table->enum('TYPEPROJET', array('1','2','3','4'));
+            $table->string('TITREMATRICE', 30);
+            $table->integer('ID_PROJET')->unsigned();
             $table->integer('ID_LANGUE')->unsigned();
             $table->integer('ID_HELP')->unsigned();
+            $table->foreign('ID_PROJET')->references('ID')->on('FRPROJET');
             $table->foreign('ID_LANGUE')->references('ID')->on('FRLANGUE');
             $table->foreign('ID_HELP')->references('ID')->on('FRHELP');
             $table->timestamp('DATECREATION');
             $table->timestamp('DATEENREGISTREMENT');
         });
-
-
-
-
-    } // function up()
+    }
 
     /**
      * Reverse the migrations.
@@ -38,10 +34,8 @@ class CreateFRPROJETTable extends Migration
      */
     public function down()
     {
-        schema::drop('FRPROJET');
+        schema::drop('FRMATRICE');
 
-
-
-    } // public function down()
-
-} // class CreateFRPROJETTable extends Migration
+    }
+    
+} //class CreateFRMATRICETable extends Migration

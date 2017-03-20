@@ -14,7 +14,6 @@ class CreateFRRESSOURCESCLESTable extends Migration
     public function up()
     {
       Schema::create('FRRESSOURCESCLES', function(Blueprint $table){
-         $table->engine = 'InnoDB';
        $table->increments('ID');
        $table->text('TYPEPHYSIQUES');
        $table->text('TYPEINTELLECTUELLES');
@@ -23,8 +22,8 @@ class CreateFRRESSOURCESCLESTable extends Migration
        $table->text('CONTENU');
        $table->string('TITRE',30);
        $table->integer('ID_HELP')->unsigned();
-       $table->integer('ID_MATRICE')->unsigned();
        $table->foreign('ID_HELP')->references('ID')->on('FRHELP');
+       $table->integer('ID_MATRICE')->unsigned();
        $table->foreign('ID_MATRICE')->references('ID')->on('FRMATRICE');
        });
     }

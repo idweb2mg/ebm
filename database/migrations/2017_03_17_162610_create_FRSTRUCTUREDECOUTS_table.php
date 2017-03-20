@@ -14,7 +14,6 @@ class CreateFRSTRUCTUREDECOUTSTable extends Migration
     public function up()
     {
       Schema::create('FRSTRUCTUREDECOUTS', function(Blueprint $table){
-       $table->engine = 'InnoDB';
        $table->increments('ID');
        $table->enum('TYPECANAUX', array('1','2'));
        $table->text('COUTSFIXES');
@@ -23,8 +22,8 @@ class CreateFRSTRUCTUREDECOUTSTable extends Migration
        $table->text('ECONOMIESENVERGURE');
        $table->string('TITRE',30);
        $table->integer('ID_HELP')->unsigned();
-       $table->integer('ID_MATRICE')->unsigned();
        $table->foreign('ID_HELP')->references('ID')->on('FRHELP');
+       $table->integer('ID_MATRICE')->unsigned();
        $table->foreign('ID_MATRICE')->references('ID')->on('FRMATRICE');
        });
     }
